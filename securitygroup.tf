@@ -1,6 +1,6 @@
-resource "aws_security_group" "web" {
+resource "aws_security_group" "jenkins" {
   name = "vpc_web"
-  description = "Allow incoming HTTP connections."
+  description = "Allow incoming connections."
 
   ingress {
     from_port = 80

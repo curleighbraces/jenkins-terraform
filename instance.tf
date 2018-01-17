@@ -23,6 +23,7 @@ resource "aws_instance" "jenkins" {
 
   subnet_id = "${aws_subnet.public.id}"
 
+  security_groups = ["${aws_security_group.jenkins.id}"]
 
   user_data = "${data.template_file.jenkins-bootstrap.rendered}"
 

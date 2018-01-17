@@ -6,14 +6,13 @@ resource "aws_vpc" "jenkins" {
   }
 }
 
-resource "aws_route_table" "r" {
-  vpc_id = "${aws_vpc.jenkins.id}"
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.gw.id}"
-  }
+resource "aws_route" "r" {
+  route_table_id         = "${aws_vpc.jenkins.main_route_table_id}"
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = "${aws_internet_gateway.gw.id}"
 }
+
+
 
 
 resource "aws_internet_gateway" "gw" {

@@ -14,7 +14,8 @@ data "aws_ami" "jenkins" {
   filter {
     name = "name"
     values = [
-      "bitnami-jenkins-*"]
+      "bitnami-jenkins-*"
+    ]
   }
 
   owners = [
